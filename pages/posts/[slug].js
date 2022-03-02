@@ -3,7 +3,8 @@
 // και ανάγνωση σε σχέση με απλά την id.
 
 import PostContent from "../../Component/posts/postDetail/postContent";
-import { getPostData, getPostsFiler } from "../../lib/postsUtil";
+import { getPostData, getPostsFiles } from "../../lib/postsUtil";
+
 
 export default function SinglePostPage (props) {
     return (
@@ -31,20 +32,20 @@ export function getStaticProps (context) {
 export function getStaticPaths() {
     // Η αν θέλουμε μπορούμε να έχουμε από πριν δυμιουργέισει τα 
     // paths μιας και δεν θα έχουμε πολλά post.
-    // const postFilesnames = getPostsFiler();
+    const postFilesnames = getPostsFiles();
     // Μια και τα ονόματα έρχοντε μαζί με την προέκταση.
-    // const slugs = postFilesnames.map((fileName) => fileName.replace(/\.md$/, ''));
-    // return {
-    //     paths: slugs.map((slug) => ({params: {slug: slug}})),
-    //     fallback: false
-    // }
-
-
+    const slugs = postFilesnames.map((fileName) => fileName.replace(/\.md$/, ''));
     return {
-        paths: [],
-        // Έτσι θα κάνει όλα τα paths όταν το επισκεπτούμε και όχι
-        // πιο πριν. το blocking είναι για να περιμένουμε μέχρι
-        // να είναι έτιμα.
-        fallback: 'blocking'
+        paths: slugs.map((slug) => ({params: {slug: slug}})),
+        fallback: false
     }
+
+
+    // return {
+    //     paths: [],
+    //     // Έτσι θα κάνει όλα τα paths όταν το επισκεπτούμε και όχι
+    //     // πιο πριν. το blocking είναι για να περιμένουμε μέχρι
+    //     // να είναι έτιμα.
+    //     fallback: 'blocking'
+    // }
 }

@@ -1,4 +1,5 @@
 import AllPosts from "../../Component/posts/allPosts";
+import {getAllPosts} from '../../lib/postsUtil';
 
 
 export default function AllPostPage (props) {

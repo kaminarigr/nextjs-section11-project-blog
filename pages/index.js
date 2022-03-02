@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Hero from "../Component/homePage/hero";
 import FeaturePosts from "../Component/homePage/featuredPosts";
-import { getFeaturedPosts } from "../lib/postsUtil";
+import { getFeaturedPosts } from "../lib/postsUtilcomment";
 
 
 
