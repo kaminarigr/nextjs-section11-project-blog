@@ -19,6 +19,9 @@ export default async function handler (req, res) {
 
         let client;
 
+        // Για να πάρουμε τις μεταβλητές περιβάλοντος.
+        const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.3sdmd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
+
         // Μια και μπορεί να αποτύχει.
         try {
             // Εφόσον έχουμε κλήση προς τον server θα πρέπει να διαχειρηστούμε
