@@ -1,3 +1,5 @@
+// Για τα meta data
+import Head from 'next/head';
 import { Fragment } from "react";
 import Hero from "../Component/homePage/hero";
 import FeaturePosts from "../Component/homePage/featuredPosts";
@@ -8,6 +10,11 @@ import { getFeaturedPosts } from "../lib/postsUtilcomment";
 export default function HomePage (props) {
     return (
         <Fragment>
+            <Head>
+                <title>YoruHikari</title>
+                <meta name='description'
+                content='Astrophotography photos and tricks'/>
+            </Head>
             <Hero />
             <FeaturePosts posts={props.posts}/>
         </Fragment>

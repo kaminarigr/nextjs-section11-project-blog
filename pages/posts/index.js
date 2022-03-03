@@ -1,10 +1,21 @@
+// meta data
+import Head from 'next/head';
+import { Fragment } from 'react/cjs/react.production.min';
 import AllPosts from "../../Component/posts/allPosts";
 import {getAllPosts} from '../../lib/postsUtil';
 
 
 export default function AllPostPage (props) {
     return (
-        <AllPosts posts={props.posts}/>
+        <Fragment>
+            <Head>
+                <title>All Posts</title>
+                <meta name='description'
+                    content='A list of astrophotography.' />
+            </Head>
+            <AllPosts posts={props.posts}/>
+        </Fragment>
+
     )
 }
 

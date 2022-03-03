@@ -2,13 +2,24 @@
 // οι διευθήνσεις να έχουν μία μορφή πιο εύκολη προς αναγνώρηση
 // και ανάγνωση σε σχέση με απλά την id.
 
+//meta data
+import Head from 'next/head';
+import { Fragment } from 'react/cjs/react.production.min';
 import PostContent from "../../Component/posts/postDetail/postContent";
 import { getPostData, getPostsFiles } from "../../lib/postsUtil";
 
 
 export default function SinglePostPage (props) {
     return (
-        <PostContent post={props.post}/>
+        // Εδώ τα meta data θα είναι δυναμικά για να έχουν
+        // και μεγαλήτερη αξία μιας και έχουμε όλα τα 
+        // δεδομένα μας.
+        <Fragment>
+            <title>{props.post.title}</title>
+            <meta name='description' content={props.post.excert}/>
+            <PostContent post={props.post}/>
+        </Fragment>
+        
     )
 }
 // Μιας και μέσο της context μπορούμε να έχουμε
