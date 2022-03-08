@@ -3,13 +3,20 @@ import PostHeader from './postHeader';
 import Image from 'next/image';
 // Την κάναμε εισαγωγή σαν βιβλιοθήκη είναι για κάνουμε
 // την παρουσίαση κωδικα πιο όμορφη.
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
-import {atomDark} from 'react-syntax-highlighter/dist/cjs/styles/prism'
+// Κάνουμε τόσες εισαγωγές έτση ώστε να μην κάνουμε εισαγωγή όλου του
+// πακέτου αλλά μόνο αυτών που είναι απαρέτητα.
+import {PrismLight as SyntaxHighlighter} from 'react-syntax-highlighter';
+import atomDark from 'react-syntax-highlighter/dist/cjs/styles/prism/atom-dark'
+import js from 'react-syntax-highlighter/dist/cjs/languages/prism/javascript';
+import css from 'react-syntax-highlighter/dist/cjs/languages/prism/css';
 
 // Με αυτή την βιβλιοθήκη μπορούμε να κάνουμε χρήση ιδικής γραφής
 // για την αυτόματη μορφοποίηση του κειμένου.
 import ReactMarkdown  from 'react-markdown';
 
+// Για την εγραφή των γλωσσών που κάναμε εισαγωγή.
+SyntaxHighlighter.registerLanguage('js',js);
+SyntaxHighlighter.registerLanguage('css',css);
 
 export default function PostContent (props) {
     const {post} = props;

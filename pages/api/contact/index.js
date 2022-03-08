@@ -20,13 +20,12 @@ export default async function handler (req, res) {
         let client;
 
         // Για να πάρουμε τις μεταβλητές περιβάλοντος.
-        const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mongodb_clustername}.3sdmd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
-
+        const connectionString = `mongodb+srv://${process.env.mongodb_username}:${process.env.mongodb_password}@${process.env.mognodb_clustername}.3sdmd.mongodb.net/${process.env.mongodb_database}?retryWrites=true&w=majority`;
         // Μια και μπορεί να αποτύχει.
         try {
             // Εφόσον έχουμε κλήση προς τον server θα πρέπει να διαχειρηστούμε
         // την υπόσχεση που μας επιστρέφει.
-             client = await MongoClient.connect('mongodb+srv://kaminada:TestPass123@cluster0.3sdmd.mongodb.net/my-astrosite?retryWrites=true&w=majority');
+             client = await MongoClient.connect(connectionString);
         } catch (error) {
             // Για να πούμε ότι είχαμε κάποιο σφάλμα στην πλευρά του server.
             res.status(500).json({message: 'Could not connect to database.'});
